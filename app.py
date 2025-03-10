@@ -1,33 +1,10 @@
 import streamlit as st
-from fpdf import FPDF
 
 
 def format_number(value):
     """Format numbers with thousand separators and remove decimal places."""
     return f"{int(value):,}"
-def generate_pdf(total_assets, liabilities_subtotal, net_amount, zakat_amount):
-    """Generate a PDF file with the Zakat calculation summary."""
-    pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
-    
-    pdf.set_font("Arial", style='B', size=16)
-    pdf.cell(200, 10, "Zakat Calculation Summary", ln=True, align='C')
-    pdf.ln(10)
 
-    pdf.set_font("Arial", size=12)
-    pdf.cell(200, 10, f"💰 Total Assets: {format_number(total_assets)}", ln=True)
-    pdf.cell(200, 10, f"💳 Total Liabilities: {format_number(liabilities_subtotal)}", ln=True)
-    pdf.cell(200, 10, f"🏦 Net Amount: {format_number(net_amount)}", ln=True)
-    pdf.cell(200, 10, f"📢 Zakat Payable Amount: {format_number(zakat_amount)} روپے", ln=True)
-
-    pdf.ln(10)
-    pdf.set_font("Arial", style='I', size=10)
-    pdf.cell(200, 10, "Note: This is an estimated calculation. Consult an Islamic scholar for confirmation.", ln=True)
-
-    pdf_filename = "/tmp/zakat_calculation.pdf"
-    pdf.output(pdf_filename)
-    return pdf_filename
 
 def calculate_zakat():
     st.title("📊 Zakat Calculator | زکوٰۃ کیلکولیٹر")
