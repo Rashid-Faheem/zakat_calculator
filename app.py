@@ -73,9 +73,9 @@ def calculate_zakat():
     
     if st.button("🧮 Calculate Zakat | زکوٰۃ کا حساب لگائیں"):
         st.subheader("📋 Summary | خلاصہ")
-        st.write(f"💰 **Total Assets:** {format_number(total_assets)}")
-        st.write(f"💳 **Total Liabilities:** {format_number(liabilities_subtotal)}")
-        st.write(f"🏦 **Net Amount:** {format_number(net_amount)}")
+        st.write(f"💰 **Total Assets | کل اثاثے** {format_number(total_assets)}")
+        st.write(f"💳 **Total Liabilities | کل قرض اور اخراجات** {format_number(liabilities_subtotal)}")
+        st.write(f"🏦 **Net Amount (Assets - Liabilities) | خالص رقم (اثاثے - قرض)** {format_number(net_amount)}")
         st.success(f"📢 **Zakat Payable Amount:** {format_number(zakat_amount)} روپے")
         
         if zakat_amount > 0:
